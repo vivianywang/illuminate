@@ -1,0 +1,56 @@
+def symptom_checker(sickness, sickness_name, treatment):
+    y_count = 0
+    for i in sickness:
+        if i == 'y':
+            y_count += 1
+    if y_count > len(sickness) - 2:
+        print("Your symptoms match", sickness_name)
+        print("Treatment:", treatment)
+
+symptoms = []
+while True:
+    mode = input("Symptom Tracker (s) or Possible sickness (p)? ")
+    if mode == 's':
+        print("Symptom Tracker")
+        what = input("New symptom (n) or See symptom history (s) ")
+        if what == 'n':
+            symptom = input("Date & Symptom: ")
+            symptoms.append(symptom)
+        elif what == 's':
+            print(symptoms)
+    elif mode == 'p':
+        print("Which symptoms are you experiencing?")
+        cough = input("Cough? (y/n) ")
+        throat = input("Sore throat? ")
+        nose = input("Congested Nose? ")
+        fever = input("Fever? ")
+        fatigue = input("Fatigue? ")
+        breath = input("Difficulty breathing? ")
+        thirst = input("Unusual Thirst? ")
+        weight = input("Weight Change? ")
+        headache = input("Headache? ")
+        pale = input("Paleness? ")
+        heart = input("Rapid Heartbeat? ")
+        vision = input("Blurry Vision? ")
+        nausea = input("Nausea or vomiting? ")
+        urination = input("Frequent urination? ")
+
+        cold = [cough, nose, throat]
+        flu = [fever, headache, throat, fatigue, breath]
+        diabetes = [thirst, weight, vision, urination]
+        low_iron = [pale, heart, fatigue]
+        low_bp = [vision, nausea, fatigue]
+        cold_treatment = "Drink lots of hot fluids and rest. If your symptoms get too heavy, try taking cold medicine."
+        flu_treatment = "Rest, stay hydrated with fluids, and take pain pills responsibly for muscle aching."
+        diabetes_treatment = "Contact a doctor ASAP. Eat healthy and watch over your weight until further notice from doc."
+        li_treatment = "Eat foods that are rich in vitamin C. You can also see a doctor to understand what's going on and to properly take iron meds."
+        bp_treatment = "Drink more fluids, no alcohol, improving blood flow with counter-maneuvers"
+
+        symptom_checker(cold, "a cold", cold_treatment)
+        symptom_checker(flu, "the flu", flu_treatment)
+        symptom_checker(diabetes, "diabetes", diabetes_treatment)
+        symptom_checker(low_iron, "low iron", li_treatment)
+        symptom_checker(low_bp, "low blood pressure", bp_treatment)
+
+
+
